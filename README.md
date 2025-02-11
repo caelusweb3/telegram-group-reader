@@ -65,8 +65,8 @@ The bot provides an interactive menu with buttons for:
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-repo/secure-telegram-bot.git
-   cd secure-telegram-botal complexity in state management
+   git clone https://github.com/caelusweb3/telegram-group-reader.git
+   cd telegram-group-reader
    ```
 
 2. Install dependencies:
