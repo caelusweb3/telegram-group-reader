@@ -32,6 +32,16 @@ The bot provides an interactive menu with buttons for:
 - **Environment Variables**: Secure credential management
 - **Error Handling**: Filtered error messages to prevent data leakage
 
+### Session Security
+- **Approach**: User session strings are encrypted using **AES-256-CBC** before storage. This ensures that even if the database is compromised, raw session data remains protected.
+- **Trade-off**:
+  - Pro: Strong encryption prevents direct access to user session data.
+  - Con: If **SESSION_SECRET** is exposed, all stored sessions become vulnerable.
+- **Solution**:  
+  - Store **SESSION_SECRET** securely in **AWS KMS** instead of the `.env` file.  
+  - Instead of storing `SESSION_SECRET` in an `.env` file, we can use **Docker Secrets** to keep it safe in containerized environments.
+ 
+
 ## 📖 How It Works
 
 1. **User starts the bot** `/start`
@@ -42,18 +52,6 @@ The bot provides an interactive menu with buttons for:
    - 🔑 Login  
 4. Users authenticate via phone number and code.
 5. The session is encrypted and saved securely.
-
-## Trade-offs & My Approach  
-
-### Session Security
-- **Approach**: User session strings are encrypted using **AES-256-CBC** before storage. This ensures that even if the database is compromised, raw session data remains protected.
-- **Trade-off**:
-  - Pro: Strong encryption prevents direct access to user session data.
-  - Con: If **SESSION_SECRET** is exposed, all stored sessions become vulnerable.
-- **Solution**:  
-  - Store **SESSION_SECRET** securely in **AWS KMS** instead of the `.env` file.  
-  - Instead of storing `SESSION_SECRET` in an `.env` file, we can use **Docker Secrets** to keep it safe in containerized environments.
- 
 
 ## 🛠️ Setup
 
