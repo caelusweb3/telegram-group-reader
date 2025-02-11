@@ -45,8 +45,9 @@ The bot provides an interactive menu with buttons for:
 ## 📖 How It Works
 
 1. **User starts the bot** `/start`
-2. If logged in, they see options:  
-   - 📩 Fetch Messages  
+2. If logged in, they see options:
+   - 📩 Fetch Last 10 Messages 
+   - 📝 Get Summary of Last 10 Messages
    - 🚪 Logout  
 3. If not logged in, they see:  
    - 🔑 Login  
